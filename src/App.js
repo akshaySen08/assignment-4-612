@@ -5,13 +5,15 @@ import Main from './Components/Main';
 import Nav from './Components/Nav';
 import { useEffect, useState } from 'react';
 // import Post from './Components/Post';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import PostDetails from './Components/PostDetails';
 
 function App() {
 
   const [posts, setPosts] = useState({});
 
   useEffect(() => {
-    return fetch('https://dummyapi.io/data/v1/post', {
+    return fetch('https://dummyapi.io/data/v1/post?limit=5', {
       headers: {
         "app-id": "61959c11c8855080728e076e"
       }
@@ -25,15 +27,24 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
-      <Header></Header>
-      <section className="mainSection">
-        <Main posts={posts}>
-        </Main>
-        <Nav></Nav>
-      </section>
-      <Footer></Footer>
-    </div>
+    <Router>
+      <div className="App">
+        <Header></Header>
+        <section className="mainSection">
+          <Switch>
+            <Route path="/" exact={true}>
+              <Main posts={posts}>
+              </Main>
+            </Route>
+            <Route path="/post-details/:postId" exact={true}>
+              <PostDetails/>
+            </Route>
+          </Switch>
+          <Nav></Nav>
+        </section>
+        <Footer></Footer>
+      </div>
+    </Router>
   );
 }
 

@@ -18,7 +18,6 @@ function Main(props) {
                         : ""
                 }
             </div>
-            This is main section.
         </main>
     )
 }

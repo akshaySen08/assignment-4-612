@@ -108,6 +108,43 @@ footer {
   display: flex;
 }
 
+.post-date {
+  font-weight: bolder;
+  margin-right: 10px;
+}
+
+.post-details-container {
+  padding: 30px;
+}
+
+.post-details-container .card{
+  border-radius: 20px;
+}
+
+.post-details-container .card .post-foot {
+  display: inline-block;
+}
+
+.post-details-container .card .post-foot img{
+  height: 600px;
+}
+
+.post-details-container .card .post-foot p{
+  font-size: large;
+}
+
+.google-news-container {
+  display: flex;
+  flex-direction: column;
+  background: #e5e5e5;
+  padding: 60px;
+  border-radius: 10px;
+}
+
+.google-news-container .news-item {
+  margin-bottom: 10px;
+}
+
 /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 @media (max-width: 600px) {
   nav,
