@@ -7,12 +7,7 @@ function Nav() {
     const [news, setNews] = useState([])
 
     useEffect(() => {
-        callNewsApi()
-    }, [])
-
-    function callNewsApi() {
-        setTimeout(() => {
-            console.log("Hey", 1);
+        const fetchData = async () => {
             axios.get(`https://newsapi.org/v2/top-headlines?country=us&pageSize=5&from=2021-11-25&sortBy=popularity&apiKey=e10abc913b494678803a08f00dca3336`)
                 .then(res => {
                     console.log({
@@ -20,8 +15,15 @@ function Nav() {
                     });
                     setNews(oldData => res.data.articles)
                 })
-        }, 2000);
-    }
+        }
+
+        const timer = setTimeout(() => {
+            fetchData();
+        }, 5000);
+
+        return () => clearTimeout(timer);
+    }, [])
+
 
     return (
         <nav>
