@@ -28,6 +28,7 @@ header {
 
 .mainSection {
   display: flex;
+  width: 100%;
   background: #f5f3f3;
 }
 
@@ -117,7 +118,7 @@ footer {
   padding: 30px;
 }
 
-.post-details-container .card{
+.post-details-container .card {
   border-radius: 20px;
 }
 
@@ -125,11 +126,11 @@ footer {
   display: inline-block;
 }
 
-.post-details-container .card .post-foot img{
+.post-details-container .card .post-foot img {
   height: 600px;
 }
 
-.post-details-container .card .post-foot p{
+.post-details-container .card .post-foot p {
   font-size: large;
 }
 
@@ -142,7 +143,17 @@ footer {
 }
 
 .google-news-container .news-item {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.home-link {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  text-decoration: none;
+  padding-left: 60px;
+  padding-right: 75px;
 }
 
 /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */

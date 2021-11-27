@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import { Link } from 'react-router-dom'
 import axios from 'axios'
 
 function Nav() {
@@ -7,19 +7,30 @@ function Nav() {
     const [news, setNews] = useState([])
 
     useEffect(() => {
-        axios.get(`https://newsapi.org/v2/top-headlines?country=us&pageSize=5&from=2021-11-25&sortBy=popularity&apiKey=e10abc913b494678803a08f00dca3336`)
-            .then(res => {
-                console.log({
-                    Google: res
-                });
-                setNews(oldData => res.data.articles)
-            })
+        callNewsApi()
     }, [])
+
+    function callNewsApi() {
+        setTimeout(() => {
+            console.log("Hey", 1);
+            axios.get(`https://newsapi.org/v2/top-headlines?country=us&pageSize=5&from=2021-11-25&sortBy=popularity&apiKey=e10abc913b494678803a08f00dca3336`)
+                .then(res => {
+                    console.log({
+                        Google: res
+                    });
+                    setNews(oldData => res.data.articles)
+                })
+        }, 2000);
+    }
 
     return (
         <nav>
             <ul className="google-news-container">
+                <li className="news-item">
+                    <Link to="/" className="home-link">Home</Link>
+                </li>
                 {
+
                     (news && news.length > 0) ?
                         news.map(n => {
                             return (

@@ -5,9 +5,9 @@ function Post(props) {
 
     return (
         <div className="card">
-            <h2>
+            <h1>
                 <Link to={`/post-details/${props.postData.id}`}>{props.postData.text}</Link>
-            </h2>
+            </h1>
 
 
             <div className="post-foot">
